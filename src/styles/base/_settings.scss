@@ -1,0 +1,61 @@
+// Colors
+$primary: #5C62C5;
+$dark-grey: #363636;
+$light-grey: #D8D8D8;
+
+$white: #fff;
+$google-blue: #4285f4;
+$button-active-blue: #1669f2;
+
+$selected-color: #448aff;
+$add-color: #00E676;
+$menu-color: #818181;
+$hover-color: lighten($color: #818181, $amount: 20);
+$add-hover-color: lighten($color: #00E676, $amount: 20);
+
+$themes: (
+    "light": (
+        "bg-color": white,
+        "color-primary": black,
+        "sutile-border": 0.5px solid rgba(129, 129, 129, 0.1),
+        "bg-color-body-content": darken($color: white, $amount: 2)
+    ),
+    "dark": (
+        "bg-color": black,
+        "color-primary": white,
+        "sutile-border": 0.5px solid rgba(53, 53, 53, 0.6),
+        "bg-color-body-content": black
+    )
+);
+
+@mixin bodyThemed() {
+    @each $theme, $map in $themes {
+      &.theme-#{$theme} {
+        $theme-map: () !global;
+        @each $key, $submap in $map {
+          $value: map-get(map-get($themes, $theme), '#{$key}');
+          $theme-map: map-merge($theme-map, ($key: $value)) !global;
+        }
+        @content;
+        $theme-map: null !global;
+      }
+    }
+}
+
+@mixin themed() {
+    @each $theme, $map in $themes {
+      .theme-#{$theme} & {
+        $theme-map: () !global;
+        @each $key, $submap in $map {
+          $value: map-get(map-get($themes, $theme), '#{$key}');
+          $theme-map: map-merge($theme-map, ($key: $value)) !global;
+        }
+        @content;
+        $theme-map: null !global;
+      }
+    }
+}
+
+@function t($key) {
+    @return map-get($theme-map, $key);
+}

@@ -1,0 +1,106 @@
+.wallet {
+    &__main-content {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        >* {
+            flex: 1;
+        }
+    }
+
+    &__menubar {
+        max-height: 80px;
+
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+
+        &-navbar {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            padding: 5px 10px;
+        }
+
+        &-item {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            flex: 1;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: $menu-color;
+
+            &:hover {
+                color: $hover-color;
+            }
+
+            &.selected {
+                color: $selected-color;
+            }
+
+            > span {
+                margin-top: 5px;
+                font-size: .6rem;
+            }
+
+            &.new {
+                font-size: 2rem;
+                color: $add-color;
+
+                &:hover {
+                    color: $add-hover-color;
+                }
+            }
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        > * {
+            padding: 15px;
+        }
+
+        &-title {
+            flex: auto;
+            @include themed() {
+                border-bottom: t('sutile-border');
+            }
+        }
+
+        &-content {
+            height: 100%;
+            @include themed() {
+                background-color: t('bg-color-body-content');
+            }
+        }
+    }
+
+    @media screen and (max-width: 700px) {
+        &__body {
+            order: 1;
+        }
+        &__menubar {
+            order: 2;
+            @include themed() {
+                border-top: t('sutile-border');
+            }
+        }
+    }
+    @media screen and (min-width: 701px) {
+        &__body {
+            order: 2;
+        }
+        &__menubar {
+            order: 1;
+            @include themed() {
+                border-bottom: t('sutile-border');
+            }
+        }
+    }
+}
