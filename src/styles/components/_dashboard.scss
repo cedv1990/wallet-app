@@ -1,0 +1,144 @@
+.wallet__dashboard {
+    &-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0 !important;
+    }
+
+    &-accounts {
+        -webkit-overflow-scrolling: touch;
+        overflow-y: hidden;
+        overflow-x: auto;
+        width: auto;
+        padding: 15px;
+        padding-bottom: 60px;
+        display: flex;
+        flex-wrap: nowrap;
+
+        @include themed() {
+            background-color: t('bg-color-account');
+        }
+
+        .item {
+            flex: 0 0 auto;
+            height: 120px;
+            width: 120px;
+            margin: 5px;
+            padding: 15px;
+            border-radius: 10%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            @include themed() {
+                background-color: t('bg-color-items');
+            }
+
+            &:not(.new) {
+                .icon {
+                    font-size: 1.6rem;
+                }
+
+                .name {
+                    font-size: .7rem;
+                    color: $menu-color;
+                    text-transform: uppercase;
+                }
+
+                .value {
+                    font-weight: bolder;
+                    font-size: 1.1rem;
+                }
+            }
+
+            &.new {
+                div {
+                    text-align: center;
+                }
+
+                .icon {
+                    font-size: 1.5rem;
+                    color: lighten($color: $selected-color, $amount: 8);
+                }
+
+                .text {
+                    font-size: .8rem;
+                }
+
+                @include themed() {
+                    background-color: t('bg-color-new-item');
+                }
+            }
+        }
+    }
+
+    &-cards-container {
+        margin-top: -50px;
+        z-index: 2;
+    }
+}
+
+.summary {
+    > span {
+        font-size: .7rem;
+        color: $menu-color;
+    }
+
+    p {
+        margin-top: 5px;
+        font-size: 1.3rem;
+
+        span {
+            font-weight: lighter;
+        }
+    }
+}
+
+.graph {
+    margin-top: 15px;
+    /*QUITAR*/
+    width: 100%;
+    padding-top: 60%;
+    background-color: #252525;
+    /*FIN QUITAR*/
+}
+
+.card__ {
+    &container {
+        border-radius: 10px;
+        padding: 15px;
+        margin: 15px;
+
+        @include themed() {
+            background-color: t('bg-color-items');
+
+            -webkit-box-shadow: t('box-shadow');
+            -moz-box-shadow:    t('box-shadow');
+            box-shadow:         t('box-shadow');
+        }
+
+        h4 {
+            margin: 0;
+            margin-bottom: 15px;
+            margin-top: 5px;
+        }
+
+        hr {
+            @include themed() {
+                border: t('hr-grey');
+            }
+            border-bottom: none !important;
+        }
+
+    }
+
+    &body {
+        margin: 15px 0;
+    }
+}
+
+.space {
+    width: 15px;
+    flex: 0 0 auto;
+}
