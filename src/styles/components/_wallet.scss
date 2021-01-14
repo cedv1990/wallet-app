@@ -1,4 +1,5 @@
 @import './dashboard';
+@import './card';
 
 .wallet {
     &__main-content {
@@ -51,7 +52,7 @@
             }
 
             &.new {
-                font-size: 2rem;
+                font-size: 3rem;
                 color: $add-color;
 
                 &:hover {

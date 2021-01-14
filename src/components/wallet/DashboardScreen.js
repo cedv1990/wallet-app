@@ -1,4 +1,6 @@
 import React from 'react';
+import { AccountItem } from './AccountItem';
+import { Card } from './Card';
 
 const data = [
     {
@@ -38,22 +40,16 @@ export const DashboardScreen = () => {
             <div className="wallet__dashboard-container">
                 <div className="wallet__dashboard-accounts">
                     {
-                        ['#4dd0e1','#ab47bc','#4dd0e1','#ab47bc','#4dd0e1'].map(x => 
+                        ['#4dd0e1','#ab47bc','#4dd0e1','#ab47bc','#4dd0e1'].map((x, i) => 
                             (
-                                <div className="item">
-                                    <div className="icon" style={{ color: x }}>
-                                        <i className="fas fa-wallet"></i>
-                                    </div>
-                                    <div className="name">
-                                        Cash
-                                    </div>
-                                    <div className="value">
-                                        0,00
-                                    </div>
-                                    <div className="currency">
-                                        COP
-                                    </div>
-                                </div>
+                                <AccountItem
+                                    key={ i }
+                                    color={ x }
+                                    currency="COP"
+                                    value={ 5.836 }
+                                    icon="fa-wallet"
+                                    name="Cash"
+                                />
                             )
                         )
                     }
@@ -70,19 +66,11 @@ export const DashboardScreen = () => {
 
                 <div className="wallet__dashboard-cards-container">
                     {
-                        data.map(({ title, body }) => (
-                            <div className="card__container">
-                                <h4>{ title }</h4>
-                                <hr />
-
-                                <div className="card__body">
-
-                                    { body }
-
-                                </div>
-                            </div>
+                        data.map(({ title, body }, i) => (
+                            <Card key={ i } title={ title }>
+                                { body }
+                            </Card>
                         ))
-
                     }
                 </div>
             </div>

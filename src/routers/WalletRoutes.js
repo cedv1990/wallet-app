@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { AddScreen } from '../components/wallet/AddScreen';
 import { DashboardScreen } from '../components/wallet/DashboardScreen';
 import { MenuBar } from '../components/wallet/MenuBar';
+import { MonthScreen } from '../components/wallet/MonthScreen';
 import { MoreScreen } from '../components/wallet/MoreScreen';
 import { StatisticsScreen } from '../components/wallet/StatisticsScreen';
 
@@ -18,7 +19,7 @@ export const WalletRoutes = () => {
 
                 <Switch>
                     <Route exact path="/dashboard" component={ DashboardScreen } />
-                    <Route exact path="/month" component={ DashboardScreen } />
+                    <Route exact path="/month" component={ MonthScreen } />
                     <Route exact path="/statistics" component={ StatisticsScreen } />
                     <Route exact path="/add" component={ AddScreen } />
                     <Route exact path="/more" component={ MoreScreen } />
