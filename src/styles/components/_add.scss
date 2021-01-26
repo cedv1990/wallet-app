@@ -1,0 +1,100 @@
+.add__{
+    &value- {
+
+        &container{
+            transition: all .5s ease;
+            @include themed() {
+                background-color: t('add-value-bg-color') !important;
+            }
+        }
+
+        &type {
+            transition: all .5s ease;
+            font-size: .9rem;
+            display: flex;
+            background-color: transparentize($color: white, $amount: 0.85);
+            border: 1px solid transparent;
+            border-radius: 5px;
+            color: white;
+
+            > div {
+                flex: 1;
+                text-align: center;
+                padding: 5px 0;
+                text-transform: capitalize;
+                transition: all .5s ease;
+
+                &:not(:last-of-type) {
+                    > div {
+                        border-right: 0.5px solid transparentize($color: white, $amount: 0.8);
+                    }
+                }
+            }
+
+            .selected {
+                border-radius: 5px;
+                background-color: white;
+                color: black;
+            }
+        }
+
+        &currency {
+            background-color: white;
+            color: black;
+            max-width: 50px;
+            height: 26px;
+            border-radius: 13px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-transform: uppercase;
+            font-weight: lighter;
+            font-size: .8rem;
+        }
+
+        &amount {
+            font-size: 3rem;
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            @include themed() {
+                color: t('add-value-text-color') !important;
+            }
+
+            > input {
+                outline: none;
+                font-size: 3rem;
+                text-align: right;
+                background-color: transparent !important;
+                border: none;
+                @include themed() {
+                    color: t('add-value-text-color') !important;
+                }
+
+                /* Chrome, Safari, Edge, Opera */
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+
+                /* Firefox */
+                &[type=number] {
+                    -moz-appearance: textfield;
+                }
+            }
+        }
+    }
+
+    &value {
+        display: flex;
+        margin-top: 20px;
+        align-items: center;
+
+        > div {
+            flex: 1;
+        }
+    }
+}

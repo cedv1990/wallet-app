@@ -1,0 +1,20 @@
+.month__{
+    &title {
+        @include themed() {
+            background-color: t('bg-color-body-content');
+        }
+
+        input[type=text] {
+            @include themed() {
+                color: t('color-primary');
+                background-color: t('bg-color-new-item');
+            }
+        }
+    }
+
+    &content {
+        @include themed() {
+            background-color: t('bg-month-content') !important;
+        }
+    }
+}

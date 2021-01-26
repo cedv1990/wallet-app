@@ -37,3 +37,19 @@ main {
 .pointer {
     cursor: pointer;
 }
+
+input[type=text] {
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+
+    @include themed() {
+        color: t('color-primary');
+        background-color: t('bg-color-items');
+    }
+}
+
+.input-search {
+    width: 100%;
+}

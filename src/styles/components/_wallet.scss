@@ -1,5 +1,8 @@
 @import './dashboard';
 @import './card';
+@import './month';
+@import './day';
+@import './add';
 
 .wallet {
     &__main-content {
@@ -75,6 +78,7 @@
 
         &-title {
             flex: auto;
+            font-size: 2rem;
             @include themed() {
                 border-bottom: t('sutile-border');
             }
